@@ -19,7 +19,7 @@ var diagonal2_sum : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AudioPlayer.play_music_level()
+	#AudioPlayer.play_music_level()
 	board_size = $Board.texture.get_width()
 	# divide board size by 3 to get the size of individual cell
 	cell_size = board_size / 3
