@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ow62swkgy3la"]
 
 [ext_resource type="PackedScene" uid="uid://ble73gnekx2db" path="res://board.tscn" id="1_fq42t"]
-[ext_resource type="AudioStream" uid="uid://cv6mwtve61al6" path="res://addons/BackgroundJazz.mp3" id="3_ila2b"]
+[ext_resource type="AudioStream" uid="uid://cv6mwtve61al6" path="res://audio/BackgroundJazz.mp3" id="3_ila2b"]
 [ext_resource type="PackedScene" uid="uid://cm82rwj3867xr" path="res://game_over_menu.tscn" id="5_m1y5t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyq64"]
@@ -25,7 +25,7 @@ shadow_offset = Vector2(5, 5)
 [node name="Main" type="Node"]
 
 [node name="Board" parent="." instance=ExtResource("1_fq42t")]
-position = Vector2(300, 300)
+position = Vector2(304.5, 299)
 
 [node name="SidePanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 600)
@@ -33,25 +33,29 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -357.0
+offset_top = -5.0
+offset_right = -6.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uyq64")
 
 [node name="PlayerLabel" type="Label" parent="."]
-offset_left = 600.0
-offset_top = 120.0
-offset_right = 900.0
-offset_bottom = 187.0
+offset_left = 905.0
+offset_top = 106.0
+offset_right = 1205.0
+offset_bottom = 173.0
 theme_override_font_sizes/font_size = 46
 text = "Next Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerPanel" type="Panel" parent="."]
-offset_left = 650.0
-offset_top = 200.0
-offset_right = 850.0
-offset_bottom = 400.0
+offset_left = 945.0
+offset_top = 186.0
+offset_right = 1145.0
+offset_bottom = 386.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7gk5c")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("5_m1y5t")]
@@ -59,3 +63,5 @@ process_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ila2b")
+volume_db = -80.0
+autoplay = true

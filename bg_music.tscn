@@ -1,16 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://drcxjgrotuh7a"]
+[gd_scene load_steps=10 format=3 uid="uid://drcxjgrotuh7a"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vfm6p"]
 [ext_resource type="PackedScene" uid="uid://coeg54j5w0jk6" path="res://circle.tscn" id="2_xtkuf"]
 [ext_resource type="PackedScene" uid="uid://dv00ri84y0w6b" path="res://cross.tscn" id="3_eyoyn"]
 [ext_resource type="PackedScene" uid="uid://ble73gnekx2db" path="res://board.tscn" id="4_kep8u"]
 [ext_resource type="PackedScene" uid="uid://cm82rwj3867xr" path="res://game_over_menu.tscn" id="5_gwytr"]
-[ext_resource type="AudioStream" uid="uid://cv6mwtve61al6" path="res://addons/BackgroundJazz.mp3" id="6_xivwt"]
+[ext_resource type="AudioStream" uid="uid://cv6mwtve61al6" path="res://audio/BackgroundJazz.mp3" id="6_xivwt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57jdi"]
-bg_color = Color(0, 0.666667, 0.803922, 1)
-border_width_left = 5
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="Theme" id="Theme_yoscx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4gpu"]
+bg_color = Color(0.466667, 0.662745, 0.831373, 1)
+border_width_left = 8
+border_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gk5c"]
 bg_color = Color(1, 1, 1, 1)
@@ -31,7 +33,13 @@ circle_scene = ExtResource("2_xtkuf")
 cross_scene = ExtResource("3_eyoyn")
 
 [node name="Board" parent="." instance=ExtResource("4_kep8u")]
-position = Vector2(300, 300)
+position = Vector2(301, 299.5)
+scale = Vector2(0.980707, 0.979365)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xivwt")
+volume_db = -20.0
+autoplay = true
 
 [node name="SidePanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 600)
@@ -41,7 +49,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_57jdi")
+theme = SubResource("Theme_yoscx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_b4gpu")
 
 [node name="PlayerLabel" type="Label" parent="."]
 offset_left = 600.0
@@ -62,10 +71,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7gk5c")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("5_gwytr")]
 process_mode = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_xivwt")
-volume_db = -10.703
-autoplay = true
 
 [connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]

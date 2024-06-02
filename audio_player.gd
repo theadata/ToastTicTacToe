@@ -1,8 +1,8 @@
 extends AudioStreamPlayer
 
-const level_music = preload("res://addons/BackgroundJazz.mp3")
+const level_music = preload("res://audio/BackgroundJazz.mp3")
 
-func _play_music(music: AudioStream, volume = 0.0):
+func _play_music(music: AudioStream, volume = -20.0):
 	if stream == music:
 		return
 		
