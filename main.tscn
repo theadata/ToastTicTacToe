@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ow62swkgy3la"]
+[gd_scene load_steps=8 format=3 uid="uid://ow62swkgy3la"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4fccw"]
 [ext_resource type="PackedScene" uid="uid://ble73gnekx2db" path="res://board.tscn" id="1_fq42t"]
 [ext_resource type="PackedScene" uid="uid://dv00ri84y0w6b" path="res://cross.tscn" id="3_ajv0r"]
 [ext_resource type="PackedScene" uid="uid://coeg54j5w0jk6" path="res://circle.tscn" id="3_ldyuc"]
 [ext_resource type="PackedScene" uid="uid://cm82rwj3867xr" path="res://game_over_menu.tscn" id="5_m1y5t"]
-[ext_resource type="AudioStream" uid="uid://cv6mwtve61al6" path="res://addons/BackgroundJazz.mp3" id="6_vjpmx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57jdi"]
 bg_color = Color(0, 0.666667, 0.803922, 1)
@@ -62,9 +61,3 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7gk5c")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("5_m1y5t")]
 process_mode = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_vjpmx")
-autoplay = true
-
-[connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]
