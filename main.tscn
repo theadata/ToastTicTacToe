@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cm82rwj3867xr" path="res://game_over_menu.tscn" id="5_m1y5t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57jdi"]
-bg_color = Color(0, 0.666667, 0.803922, 1)
+bg_color = Color(0.466667, 0.662745, 0.831373, 1)
 border_width_left = 5
 border_color = Color(0, 0, 0, 1)
 
